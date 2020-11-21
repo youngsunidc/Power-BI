@@ -1,4 +1,17 @@
-# mc_01
-#多因子模型是量化选股中最重要的一类模型，基本思想是找到某些和收益率最相关的指标，并根据该指标，构建一个股票组合，期望该组合在未来的一段时间跑赢或跑输指数。如果跑赢，则可以做多该组合，同时做空期指，赚取正向阿尔法收益；如果是跑输，则可以组多期指，融券做空该组合，赚取反向阿尔法收益。多因子模型的关键是找到因子与收益率之间的关联性。
-import pandas as pd 
-this is my try
+Supervised Learning
+Supervised Learning
+In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.
+
+Supervised learning problems are categorized into "regression" and "classification" problems. In a regression problem, we are trying to predict results within a continuous output, meaning that we are trying to map input variables to some continuous function. In a classification problem, we are instead trying to predict results in a discrete output. In other words, we are trying to map input variables into discrete categories. 
+
+Example 1:
+
+Given data about the size of houses on the real estate market, try to predict their price. Price as a function of size is a continuous output, so this is a regression problem.
+
+We could turn this example into a classification problem by instead making our output about whether the house "sells for more or less than the asking price." Here we are classifying the houses based on price into two discrete categories.
+
+Example 2:
+
+(a) Regression - Given a picture of a person, we have to predict their age on the basis of the given picture
+
+(b) Classification - Given a patient with a tumor, we have to predict whether the tumor is malignant or benign. 
