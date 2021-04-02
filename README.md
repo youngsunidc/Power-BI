@@ -7,11 +7,20 @@
 
 # 关系函数
 ## related函数
-- related函数必须保证两个表有关联关系。 函数将进行多对一的关系。 **如果不是表之间不是"many to one"，如果是"many to many"则也无法运行公式**
-- Related进行查找的时候，将检查指定表的所有值，不考虑任何筛选器。 
+可以简单的理解为一个vlookup函数， 但是应用的前提是必须要保证“多对一”的关系。 而且是以**新建列**的形式进行出现。 
+related函数必须保证两个表有关联关系。 函数将进行多对一的关系。 **如果不是表之间不是"many to one"，如果是"many to many"则也无法运行公式**
+Related进行查找的时候，将检查指定表的所有值，不考虑任何筛选器。 
 
-> 在使用related函数的时候，**插入列所在的表** 比较要保证有一个“Many to one”的对应关系。 
+
+- 多对一关系（必须）
+在使用related函数的时候，**插入列所在的表**，比较要保证有一个“Many to one”的对应关系。 
 > ![image](https://user-images.githubusercontent.com/65394762/113377426-d60d9280-93a6-11eb-973b-ff9bf91bc28c.png)
+
+- 可以与IF函数进行连立。
+![image](https://user-images.githubusercontent.com/65394762/113383259-1a545f00-93b6-11eb-96c6-bb79ae7a2b98.png)
+
+
+
 
 # 场景分配
 ## 如何计算某非重复项的数目
