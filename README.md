@@ -15,12 +15,21 @@
 ALL ( [<TableNameOrColumnName>] , [ <ColumnName>, [ <ColumnName>, [ … ] ] ] )
 ```
 
- - **ALL函数可以忽略筛选上下文。本文中如average和total都是清除筛选条件。**
+ - **<作为清除筛选项>ALL函数可以忽略筛选上下文。本文中如average和total都是清除筛选条件。**
+```ruby 
+# 对某一列进行清除上下文的筛选。 例如对Brand列进行清除上下文。 那么 All(ORG)与All(ORG[Brand])的效果是一致的
+total_units = CALCULATE(ORG[mea_unit],  ALL(ORG ) )
+total_units = CALCULATE(ORG[mea_unit],  ALL(ORG[Brand]) )
+```
 ![image](https://user-images.githubusercontent.com/65394762/113401113-75e21500-93d5-11eb-8dc4-a3b2c690cb06.png)
 
-- **ALL函数如果对某一列进行嵌套的时候，则返回一列不重复的数值。**
-![image](https://user-images.githubusercontent.com/65394762/113402243-4b915700-93d7-11eb-9fd9-d47478c20033.png)
 
+
+
+- **<作为表函数时> ALL函数如果对某一列进行嵌套的时候，则返回一列不重复的数值。**
+![image](https://user-images.githubusercontent.com/65394762/113402243-4b915700-93d7-11eb-9fd9-d47478c20033.png)
+- **<作为表函数时> ALL函数可以对某几列进行嵌套， 然后返回都不重复的数值 **
+![image](https://user-images.githubusercontent.com/65394762/113403055-a4152400-93d8-11eb-8eb9-576b01d62a97.png)
 
 
 ## AllSelected函数
