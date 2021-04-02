@@ -15,10 +15,10 @@
 ALL ( [<TableNameOrColumnName>] , [ <ColumnName>, [ <ColumnName>, [ … ] ] ] )
 ```
 
-ALL函数可以忽略筛选上下文。本文中如average和total都是清除筛选条件。 
+ - **ALL函数可以忽略筛选上下文。本文中如average和total都是清除筛选条件。**
 ![image](https://user-images.githubusercontent.com/65394762/113401113-75e21500-93d5-11eb-8dc4-a3b2c690cb06.png)
 
-ALL函数如果对某一列进行嵌套的时候，则返回一列不重复的数值。 
+- **ALL函数如果对某一列进行嵌套的时候，则返回一列不重复的数值。**
 ![image](https://user-images.githubusercontent.com/65394762/113402243-4b915700-93d7-11eb-9fd9-d47478c20033.png)
 
 
