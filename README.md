@@ -1,17 +1,28 @@
 
-Supervised Learning
-In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.
+# Relationship 
+每一组模型关系中需要定义基数类型。 以下**“一”** 代表该列的数值近代表唯一值， **“多”** 代表该列包含重复值
+- 一对多: 
+- 多对一
+- 一对一： 表示两列都仅仅含有唯一的数值。 
+- 多对多： 表示两列都包含重复值。 
 
-Supervised learning problems are categorized into "regression" and "classification" problems. In a regression problem, we are trying to predict results within a continuous output, meaning that we are trying to map input variables to some continuous function. In a classification problem, we are instead trying to predict results in a discrete output. In other words, we are trying to map input variables into discrete categories. 
 
-Example 1:
 
-Given data about the size of houses on the real estate market, try to predict their price. Price as a function of size is a continuous output, so this is a regression problem.
 
-We could turn this example into a classification problem by instead making our output about whether the house "sells for more or less than the asking price." Here we are classifying the houses based on price into two discrete categories.
+# 关系函数
+## related函数
+- related函数必须保证两个表有关联关系。 函数将进行多对一的关系。 **如果不是表之间不是"one to many"，如果是"many to many"则也无法运行公式**
+- Related进行查找的时候，将检查指定表的所有值，不考虑任何筛选器。 
 
-Example 2:
 
-(a) Regression - Given a picture of a person, we have to predict their age on the basis of the given picture
+# 场景分配
+## 如何计算某非重复项的数目
+- Distincount(): DISTINCTCOUNT(<column>)  
+- 返回： column中非重复值的数量
+- 语法和例子：
 
-(b) Classification - Given a patient with a tumor, we have to predict whether the tumor is malignant or benign. 
+> ``` ruby
+> gaming_model_nub = CALCULATE(DISTINCTCOUNT(ORG[Model Name]), ORG[Quarter]=="2020Q2",ORG[Branded Gaming]="Yes")
+> ```
+> ![image](https://user-images.githubusercontent.com/65394762/113258671-d18d9f00-92fe-11eb-9221-96811e20b21f.png)
+
