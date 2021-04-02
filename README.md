@@ -6,11 +6,10 @@
 - 多对多： 表示两列都包含重复值。 
 
 # 关系函数
-## related函数
-可以简单的理解为一个vlookup函数， 但是应用的前提是必须要保证“多对一”的关系。 而且是以**新建列**的形式进行出现。 
-related函数必须保证两个表有关联关系。 函数将进行多对一的关系。 **如果不是表之间不是"many to one"，如果是"many to many"则也无法运行公式**
-Related进行查找的时候，将检查指定表的所有值，不考虑任何筛选器。 
-
+## related函数（many to one）
+  1.数值函数， 将返回一个值函数。  
+  2.可以简单的理解为一个**vlookup函数**， 但是应用的前提是必须要保证“多对一”的关系。 而且是以**新建列**的形式进行出现。  
+  3.related函数必须保证两个表有关联关系。 函数将进行多对一的关系。 **如果不是表之间不是"many to one"，如果是"many to many"则也无法运行公式** 
 
 - 多对一关系（必须）
 在使用related函数的时候，**插入列所在的表**，比较要保证有一个“Many to one”的对应关系。 
@@ -18,6 +17,12 @@ Related进行查找的时候，将检查指定表的所有值，不考虑任何�
 
 - 可以与IF函数进行连立。
 ![image](https://user-images.githubusercontent.com/65394762/113383259-1a545f00-93b6-11eb-96c6-bb79ae7a2b98.png)
+
+## relatedtable函数(one to many)
+  1. 一对多的情况。 relatedtable将返回一个表函数。 RELATEDTABLE ( <表名> )
+  2. 可以对返回的表函数，进行嵌套操作，再返回成一个值函数。 
+  
+![image](https://user-images.githubusercontent.com/65394762/113386818-9f8f4200-93bd-11eb-9cfe-3ab0aa91e4a9.png)
 
 
 
