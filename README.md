@@ -5,6 +5,19 @@
 - 一对一： 表示两列都仅仅含有唯一的数值。 
 - 多对多： 表示两列都包含重复值。 
 
+# ALL类函数
+## ALL函数
+- 用作Calculate调节器时， 移除所有 <table> or <columns>的筛选器。
+- 用作表函数的时， ALL(<column_Name>)返回一列或者多列所有不重复的值； ALL(<TableName>)返回表中所有的行。 
+
+```
+ALL ( [<TableNameOrColumnName>] , [ <ColumnName>, [ <ColumnName>, [ … ] ] ] )
+```
+
+## AllSelected函数
+
+
+
 # 关系函数
 ## related函数（many to one）
   1.数值函数， 将返回一个值函数。  
