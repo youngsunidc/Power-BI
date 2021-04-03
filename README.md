@@ -58,6 +58,12 @@ ALLSELECTED ( [<表名或列名>], [ <列名>, <列名>, … ] )
 - 当使用Allselected函数的时候， 会忽略除了外部筛选器的所有筛选工具
 ![image](https://user-images.githubusercontent.com/65394762/113478110-53292c80-94b9-11eb-8e7a-59c4063e0666.png)
 
+## Allexcept函数
+如果希望用 ALL 函数调用表的多数列，那么可以使用 ALLEXCEPT 替代。ALLEXCEPT 的语法需要一个表，后跟要从结果中排除的列。因此，ALLEXCEPT 返回一个表，包含了表中其他列现有值组合的唯一列表。
+- 返回值： 表函数
+
+
+![image](https://user-images.githubusercontent.com/65394762/113479269-a5218080-94c0-11eb-85fb-f0e0079a4f3f.png)
 
 
 
