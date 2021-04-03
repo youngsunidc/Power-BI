@@ -24,6 +24,18 @@ total_units = CALCULATE(ORG[mea_unit],  ALL(ORG[Brand]) )
 ```
 ![image](https://user-images.githubusercontent.com/65394762/113401113-75e21500-93d5-11eb-8dc4-a3b2c690cb06.png)
 
+- **<作为表函数> ALL函数清除排名的影响。**
+``` ruby 
+# 如果不使用All()函数，由于是度量值，受筛选上下文的影响。 因而返回数值永远为1.
+# 首先，由于使用了Measure，其特点是会根据创建表单所使用的列动态获取计算结果。
+# Measure的计算结果会受到筛选上下文影响。由于没有使用ALL函数，导致RANKX函数中使用的参数表单Sales，会根据筛选条件的变化而变化，相当于每一行数据都在跟自己做排序，因此结果有误。
+# 计算Rankx排名的时候，ALL(ORG)的时候是把所有列都去除筛选。返回的是ORG的原表， 而Brand_units则与每一行进行大小比较。 
+# ALL(ORG[Brand])只把Brand列去除筛选。 返回一个不重复的Brand列。 
+ALL_Brand = RANKX(ALL(ORG[Brand]),[mea_unit]) 
+All_sheets = RANKX(ALL(ORG),[mea_unit])
+```
+![image](https://user-images.githubusercontent.com/65394762/113477489-992fc180-94b4-11eb-8082-8516a5ee52cb.png)
+
 
 
 
