@@ -7,6 +7,7 @@
 
 # ALL类函数
 ## ALL函数
+- **返回值**当作为表函数使用时，ALL 返回完整的表或具有一列或多列的表； 当作为 CALULCATE 调节器使用时，ALL 移除参数中已应用的任何直接筛选器。
 - 用作Calculate调节器时， 移除所有 <table> or <columns>的筛选器。
 - 用作表函数的时， ALL(<column_Name>)返回一列或者多列所有不重复的值； ALL(<TableName>)返回表中所有的行。 
 
@@ -33,6 +34,17 @@ total_units = CALCULATE(ORG[mea_unit],  ALL(ORG[Brand]) )
 
 
 ## AllSelected函数
+
+用作表函数时，ALLSELECTED 返回表(或列)在最后一个影子筛选上下文中的筛选结果。用作调节器时，它恢复每列的最后一个影子筛选上下文。
+如果在不同的影子筛选上下文中存在多列，ALLSELECTED 使用每个列的最后一个影子筛选上下文。
+
+```ruby
+ALLSELECTED ( [<表名或列名>], [ <列名>, <列名>, … ] )
+```
+- 返回值 
+
+
+
 
 
 
