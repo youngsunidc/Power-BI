@@ -53,8 +53,10 @@ All_sheets = RANKX(ALL(ORG),[mea_unit])
 ```ruby
 ALLSELECTED ( [<表名或列名>], [ <列名>, <列名>, … ] )
 ```
-- 返回值 
+- 返回值:表函数，忽略除了外部筛选器的所有筛选。 
 
+- 当使用Allselected函数的时候， 会忽略除了外部筛选器的所有筛选工具
+![image](https://user-images.githubusercontent.com/65394762/113478110-53292c80-94b9-11eb-8e7a-59c4063e0666.png)
 
 
 
