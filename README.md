@@ -110,7 +110,8 @@ ALLSELECTED ( [<表名或列名>], [ <列名>, <列名>, … ] )
 
 ## 应用场景
 - **拼接新表**
-selectedcolumns与addcolumns结合
+selectedcolumns与addcolumns结合。 
+先通过Addcolumns(values(),"new_name","new_columns")的形式生成新的表格，然后再通过union()函数把表格自动拼接在一起。 
 
 ``` ruby
 table_try = 
