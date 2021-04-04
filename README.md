@@ -41,7 +41,7 @@ All_sheets = RANKX(ALL(ORG),[mea_unit])
 
 - **<作为表函数时> ALL函数如果对某一列进行嵌套的时候，则返回一列不重复的数值。**
 ![image](https://user-images.githubusercontent.com/65394762/113402243-4b915700-93d7-11eb-9fd9-d47478c20033.png)
-- **<作为表函数时> ALL函数可以对某几列进行嵌套， 然后返回都不重复的数值 **
+- **<作为表函数时> ALL函数可以对某几列进行嵌套， 然后返回都不重复的数值**
 ![image](https://user-images.githubusercontent.com/65394762/113403055-a4152400-93d8-11eb-8eb9-576b01d62a97.png)
 
 
@@ -60,11 +60,14 @@ ALLSELECTED ( [<表名或列名>], [ <列名>, <列名>, … ] )
 
 ## Allexcept函数
 如果希望用 ALL 函数调用表的多数列，那么可以使用 ALLEXCEPT 替代。ALLEXCEPT 的语法需要一个表，后跟要从结果中排除的列。因此，ALLEXCEPT 返回一个表，包含了表中其他列现有值组合的唯一列表。
+
 - 返回值： 表函数
-
-
+- 筛选功能上： **ALL函数是设置哪些列不起筛选作用，而ALLEXCEPT函数是保留哪些列起筛选作用。**
 ![image](https://user-images.githubusercontent.com/65394762/113479269-a5218080-94c0-11eb-85fb-f0e0079a4f3f.png)
 
+-筛选上下文上: **如果是ALL函数的话，是把所有列都取消筛选， 但是Allexpected相当于忽略某一特定列的筛选。
+              g_all是取消所有的筛选条件， g_all_acc取消除了brand列的所有筛选条件，因此当上下文为brand的时候，仍然有上下文筛选** 
+![image](https://user-images.githubusercontent.com/65394762/113495117-a931ba80-9521-11eb-9a6a-6cb7597dc59e.png)
 
 
 
