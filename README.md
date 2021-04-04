@@ -94,10 +94,17 @@ ALLSELECTED ( [<表名或列名>], [ <列名>, <列名>, … ] )
 
 # Selectcolumns和Addcolumns
 
-- 公式：SELECTCOLUMNS ( <Table>, <Name>, <Expression> [, <Name>, <Expression> [, … ] ] )
-- 重新生成一个新的空表， 从其他的表中添加新的列到空表中，添加的时候可以应用表达式（正常的数学公式即可）。
+## Selectedcolumns
 
+``` ruby
+- 公式：SELECTCOLUMNS ( <Table>, <Name>, <Expression> [, <Name>, <Expression> [, … ] ] )
+```
+- **重新生成一个新的空表， 从其他的表中添加新的列到空表中，添加的时候可以应用表达式（正常的数学公式即可）**
 ![image](https://user-images.githubusercontent.com/65394762/113495979-cd909580-9527-11eb-913f-3c37f442915c.png)
+
+## Addcolumns
+- **在原始的表格上， 添加新的几列。
+![image](https://user-images.githubusercontent.com/65394762/113497862-59abb880-953a-11eb-86a8-f3dcfb2e3f83.png)
 
 
 
