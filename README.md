@@ -103,7 +103,7 @@ ALLSELECTED ( [<表名或列名>], [ <列名>, <列名>, … ] )
 ![image](https://user-images.githubusercontent.com/65394762/113495979-cd909580-9527-11eb-913f-3c37f442915c.png)
 
 ## Addcolumns
-- **在原始的表格上， 添加新的几列。
+- **在原始的表格上， 添加新的几列。**(红色为原表，蓝色为新列)
 ![image](https://user-images.githubusercontent.com/65394762/113497862-59abb880-953a-11eb-86a8-f3dcfb2e3f83.png)
 
 
