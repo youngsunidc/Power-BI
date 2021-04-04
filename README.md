@@ -95,7 +95,7 @@ ALLSELECTED ( [<表名或列名>], [ <列名>, <列名>, … ] )
 # Selectcolumns和Addcolumns
 
 ## Selectedcolumns
-
+选择某一列，返回带有运算公式的不重复的数值。
 ``` ruby
 - 公式：SELECTCOLUMNS ( <Table>, <Name>, <Expression> [, <Name>, <Expression> [, … ] ] )
 ```
