@@ -65,9 +65,10 @@ ALLSELECTED ( [<表名或列名>], [ <列名>, <列名>, … ] )
 - 筛选功能上： **ALL函数是设置哪些列不起筛选作用，而ALLEXCEPT函数是保留哪些列起筛选作用。**
 ![image](https://user-images.githubusercontent.com/65394762/113479269-a5218080-94c0-11eb-85fb-f0e0079a4f3f.png)
 
--筛选上下文上: **如果是ALL函数的话，是把所有列都取消筛选， 但是Allexpected相当于忽略某一特定列的筛选。
-              g_all是取消所有的筛选条件， g_all_acc取消除了brand列的所有筛选条件，因此当上下文为brand的时候，仍然有上下文筛选** 
+- 筛选上下文上: **如果是ALL函数的话，是把所有列都取消筛选， 但是Allexpected相当于忽略某一特定列的筛选。**
+              **g_all是取消所有的筛选条件， g_all_acc取消除了brand列的所有筛选条件，因此当上下文为brand的时候，仍然有上下文筛选** 
 ![image](https://user-images.githubusercontent.com/65394762/113495117-a931ba80-9521-11eb-9a6a-6cb7597dc59e.png)
+
 
 
 
@@ -85,11 +86,18 @@ ALLSELECTED ( [<表名或列名>], [ <列名>, <列名>, … ] )
 ![image](https://user-images.githubusercontent.com/65394762/113383259-1a545f00-93b6-11eb-96c6-bb79ae7a2b98.png)
 
 ## relatedtable函数(one to many)
-  1. 一对多的情况。 relatedtable将返回一个表函数。 RELATEDTABLE ( <表名> )
-  2. 可以对返回的表函数，进行嵌套操作，再返回成一个值函数。 
+- 一对多的情况。 relatedtable将返回一个表函数。 RELATEDTABLE ( <表名> )
+- 可以对返回的表函数，进行嵌套操作，再返回成一个值函数。 
   
 ![image](https://user-images.githubusercontent.com/65394762/113386818-9f8f4200-93bd-11eb-9cfe-3ab0aa91e4a9.png)
 
+
+# Selectcolumns和Addcolumns
+
+- 公式：SELECTCOLUMNS ( <Table>, <Name>, <Expression> [, <Name>, <Expression> [, … ] ] )
+- 重新生成一个新的空表， 从其他的表中添加新的列到空表中，添加的时候可以应用表达式（正常的数学公式即可）。
+
+![image](https://user-images.githubusercontent.com/65394762/113495979-cd909580-9527-11eb-913f-3c37f442915c.png)
 
 
 
