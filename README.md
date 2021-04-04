@@ -108,6 +108,27 @@ ALLSELECTED ( [<表名或列名>], [ <列名>, <列名>, … ] )
 - **在原始的表格是， 添加新的几列并且带着运算公式**
 ![image](https://user-images.githubusercontent.com/65394762/113500260-1576e300-954f-11eb-8973-999fe93415c6.png)
 
+## 应用场景
+- **拼接新表**
+selectedcolumns与addcolumns结合
+
+``` ruby
+table_try = 
+var brand_units_in = CALCULATE([salein_unit],ALL(salein[Vendor]))
+var brand_units_out = CALCULATE([mea_unit],ALL(ORG[Brand]))
+var table1 = SELECTCOLUMNS(ADDCOLUMNS(VALUES(ORG[Brand]),"Brand_new",ORG[Brand],"Channels","Sale_out"),"columns",[Brand_new],"seg_column",brand_units_out,"channels",[Channels])
+var table2 = SELECTCOLUMNS(ADDCOLUMNS(VALUES(salein[Vendor]),"vendor_new",salein[Vendor],"Channels","Sale_in"),"columns",[vendor_new],"seg_column",brand_units_in,"channels",[Channels])
+return UNION(table1,table2)
+```
+
+![image](https://user-images.githubusercontent.com/65394762/113507415-d6f81d00-957c-11eb-9a15-7ea3dabc1421.png)
+
+
+
+
+
+
+
 
 # 场景分配
 ## 如何计算某非重复项的数目
