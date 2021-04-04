@@ -105,7 +105,8 @@ ALLSELECTED ( [<表名或列名>], [ <列名>, <列名>, … ] )
 ## Addcolumns
 - **在原始的表格上， 添加新的几列。**(红色为原表，蓝色为新列)
 ![image](https://user-images.githubusercontent.com/65394762/113497862-59abb880-953a-11eb-86a8-f3dcfb2e3f83.png)
-
+- **在原始的表格是， 添加新的几列并且带着运算公式**
+![image](https://user-images.githubusercontent.com/65394762/113500260-1576e300-954f-11eb-8973-999fe93415c6.png)
 
 
 # 场景分配
