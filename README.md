@@ -92,7 +92,7 @@ ALLSELECTED ( [<表名或列名>], [ <列名>, <列名>, … ] )
 ![image](https://user-images.githubusercontent.com/65394762/113386818-9f8f4200-93bd-11eb-9cfe-3ab0aa91e4a9.png)
 
 
-# Selectcolumns和Addcolumns
+# Selectcolumns和Addcolumns/Selectvalue
 
 ## Selectedcolumns
 选择某一列，返回带有运算公式的不重复的数值。
@@ -107,6 +107,23 @@ ALLSELECTED ( [<表名或列名>], [ <列名>, <列名>, … ] )
 ![image](https://user-images.githubusercontent.com/65394762/113497862-59abb880-953a-11eb-86a8-f3dcfb2e3f83.png)
 - **在原始的表格是， 添加新的几列并且带着运算公式**
 ![image](https://user-images.githubusercontent.com/65394762/113500260-1576e300-954f-11eb-8973-999fe93415c6.png)
+
+## selectvalue
+- 当上下文过滤为一个数值时，则就返回该值。 
+``` ruby
+SELECTEDVALUE(<columnName>[, <alternateResult>])
+```
+- 示例: 常以Switch()进行套用，当使用外部切片器的时候， 会返回选择的数值。 
+``` ruby
+value_units = SWITCH(TRUE(),
+                SELECTEDVALUE('Value参数表'[value])="销售量",ORG[mea_unit],
+                SELECTEDVALUE('Value参数表'[value])="销售价值",ORG[mea_value])
+```
+![image](https://user-images.githubusercontent.com/65394762/113509388-dd3fc680-9587-11eb-8e78-47b9bd4499d6.png)
+
+
+
+
 
 ## 应用场景
 - **拼接新表**
@@ -125,7 +142,16 @@ return UNION(table1,table2)
 ![image](https://user-images.githubusercontent.com/65394762/113507415-d6f81d00-957c-11eb-9a15-7ea3dabc1421.png)
 
 
-
+- **动态轴交互**
+不同轴，可以用切片器筛选X轴。 X轴的参数来源于虚拟表，因此需要通过Treatas函数对其进行虚拟联立。
+ruby
+```
+in_out_units = SWITCH(TRUE(),
+        SELECTEDVALUE(table_try[channels])="Sale_out",CALCULATE([mea_unit],TREATAS(VALUES(table_try[columns]),ORG[Brand])),
+        SELECTEDVALUE(table_try[channels])="Sale_in",CALCULATE([salein_unit],TREATAS(VALUES(table_try[columns]),salein[Vendor])))
+        
+```
+![image](https://user-images.githubusercontent.com/65394762/113509995-044bc780-958b-11eb-90cc-e9591352479d.png)
 
 
 
