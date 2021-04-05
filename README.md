@@ -92,14 +92,16 @@ ALLSELECTED ( [<表名或列名>], [ <列名>, <列名>, … ] )
 ![image](https://user-images.githubusercontent.com/65394762/113386818-9f8f4200-93bd-11eb-9cfe-3ab0aa91e4a9.png)
 
 ## Treatas函数
-- 表达式：``` TREATAS(table_expression, <column>[, <column>[, <column>[,…]]]} )  ```
+- 表达式：``` TREATAS(table_expression, <column>[, <column>[, <column>[,…]]]} ) 
+                         Treate columns as columns_from other table           ```
 
-利用表函数(table expression)对其他表中的关联列进行筛选。
+利用表函数(table expression)对其他表中的关联列进行筛选。 
 
 - 通过筛选格式，建立虚拟链接。
 此图中，"新月度表"和"ORG"表并没有建立如何的关联，如果需要引用另外一个表中的度量值的话， 必须通过treatas进行关联。 
 ![image](https://user-images.githubusercontent.com/65394762/113554068-53493980-962b-11eb-906f-85885cd304d9.png)
 
+- 正常案例
 因此，我们在这里应当使用关联的形式进行计算。 
 mea_unit表示没有发生联立的结果，因此返回的数值都是一样的数值
 units_brand表示通过在org_brand中筛选brand进行联立
@@ -114,7 +116,13 @@ units_compy = CALCULATE([mea_unit],TREATAS(VALUES('最新月度表'[Brand]),ORG[
 ```
 ![image](https://user-images.githubusercontent.com/65394762/113554644-36613600-962c-11eb-9ce6-ec894b5e3d01.png)
 
+- treate列与表现列不同时。
+ 当建立表格的时候，母列为Brand,而子列为proessor。 Treat brand 作为筛选对象。
+ 则brand为母列下面只要包含一个processor brand就返回总值。因为是通过value()和calculate()进行计算返回总值。
 
+```units_modelgpu = CALCULATE(SUM(ORG[Units]),TREATAS(VALUES('最新月度表'[Processor Brand]),ORG[Processor Brand]))```
+
+![image](https://user-images.githubusercontent.com/65394762/113556070-7b866780-962e-11eb-9bca-97a5695a2571.png)
 
 
 
