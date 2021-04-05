@@ -91,6 +91,37 @@ ALLSELECTED ( [<表名或列名>], [ <列名>, <列名>, … ] )
   
 ![image](https://user-images.githubusercontent.com/65394762/113386818-9f8f4200-93bd-11eb-9cfe-3ab0aa91e4a9.png)
 
+## Treatas函数
+- 表达式：``` TREATAS(table_expression, <column>[, <column>[, <column>[,…]]]} )  ```
+
+利用表函数(table expression)对其他表中的关联列进行筛选。
+
+- 通过筛选格式，建立虚拟链接。
+此图中，"新月度表"和"ORG"表并没有建立如何的关联，如果需要引用另外一个表中的度量值的话， 必须通过treatas进行关联。 
+![image](https://user-images.githubusercontent.com/65394762/113554068-53493980-962b-11eb-906f-85885cd304d9.png)
+
+因此，我们在这里应当使用关联的形式进行计算。 
+mea_unit表示没有发生联立的结果，因此返回的数值都是一样的数值
+units_brand表示通过在org_brand中筛选brand进行联立
+units_compy表示通过在org_company中筛选brand,但是，有一些品牌在company中是没有的，如Alienware,Dell,Honor,因此返回为空值。 
+
+``` ruby
+# mea_unit是代表ORG(其他表)的汇总和。 # units_brand表示通过brand之间进行筛选联立 ； # units_compy表示通过在[org]company列进行筛选brand的内容
+mea_unit = SUM(ORG[Units]) 
+units_brand = CALCULATE([mea_unit],TREATAS(VALUES('最新月度表'[Brand]),ORG[Brand])) 
+units_compy = CALCULATE([mea_unit],TREATAS(VALUES('最新月度表'[Brand]),ORG[Company])) 
+
+```
+![image](https://user-images.githubusercontent.com/65394762/113554644-36613600-962c-11eb-9ce6-ec894b5e3d01.png)
+
+
+
+
+
+
+
+
+
 
 # Selectcolumns和Addcolumns/Selectvalue
 
