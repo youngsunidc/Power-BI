@@ -145,10 +145,6 @@ datatables = DATATABLE("index",INTEGER,"选择形式",STRING,{
 
 
 
-
-
-
-
 ## Selectedcolumns
 选择某一列，返回带有运算公式的不重复的数值。
 ``` ruby
@@ -186,6 +182,7 @@ value_units = SWITCH(TRUE(),
 
 
 
+
 ## 应用场景
 - **拼接新表**
 selectedcolumns与addcolumns结合。 
@@ -214,6 +211,36 @@ in_out_units = SWITCH(TRUE(),
 ```
 ![image](https://user-images.githubusercontent.com/65394762/113509995-044bc780-958b-11eb-90cc-e9591352479d.png)
 
+# 时间函数表
+## 时间日期表的建立
+ 
+- 标准时间表的确立：
+``` ruby
+日期表 = 
+ADDCOLUMNS (
+CALENDAR (DATE(2017,1,1), DATE(2020,12,31)),
+"年度", YEAR ( [Date] ),
+"季度", "Q" & FORMAT ( [Date], "Q" ),
+"月份", FORMAT ( [Date], "MM" ),
+"日",FORMAT ( [Date], "DD" ),
+"年度季度", FORMAT ( [Date], "YYYY" ) & "Q" & FORMAT ( [Date], "Q" ),
+"年度月份", FORMAT ( [Date], "YYYY/MM" ),
+"星期几", WEEKDAY ( [Date],1 )
+)
+```
+
+## 计算上个月的方法 
+```ruby 
+PREV_MONTH = CALCULATE(SUM(ORG[Units]), DATEADD('日期表'[Date].[Date], -1, MONTH))
+```
+使用pre_month的方法，可以计算度量值“月”上一个月的数值。 
+![image](https://user-images.githubusercontent.com/65394762/113669360-3aea2500-96e6-11eb-867d-91a737a518ab.png)
+
+
+
+
+
+
 
 
 
@@ -228,3 +255,4 @@ in_out_units = SWITCH(TRUE(),
 > gaming_model_nub = CALCULATE(DISTINCTCOUNT(ORG[Model Name]), ORG[Quarter]=="2020Q2",ORG[Branded Gaming]="Yes")
 > ```
 > ![image](https://user-images.githubusercontent.com/65394762/113258671-d18d9f00-92fe-11eb-9221-96811e20b21f.png)
+
