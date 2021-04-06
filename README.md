@@ -126,12 +126,27 @@ units_compy = CALCULATE([mea_unit],TREATAS(VALUES('最新月度表'[Brand]),ORG[
 
 
 
+# 创建表函数
+## DATATABLE()
+- 通过Datatable的函数生成一个辅助表。以字典的形式传入一系列的数据
+``` 
+# values 可以包括black(),Date,string,etc...
+DATATABLE (ColumnName1, DataType1, ColumnName2, DataType2..., {{Value1, Value2...}, {ValueN, ValueN+1...}...}) ```
+
+- 实操案例。 
+``` ruby
+datatables = DATATABLE("index",INTEGER,"选择形式",STRING,{
+                        {1,"大于平均数值"},
+                        {2,"小于平均数值"}    })
+```
+![image](https://user-images.githubusercontent.com/65394762/113656555-b213bf00-96ce-11eb-8259-dbdb9920f93d.png)
 
 
 
 
 
-# Selectcolumns和Addcolumns/Selectvalue
+
+
 
 ## Selectedcolumns
 选择某一列，返回带有运算公式的不重复的数值。
