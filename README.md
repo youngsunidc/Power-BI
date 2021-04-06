@@ -131,7 +131,8 @@ units_compy = CALCULATE([mea_unit],TREATAS(VALUES('最新月度表'[Brand]),ORG[
 - 通过Datatable的函数生成一个辅助表。以字典的形式传入一系列的数据
 ``` 
 # values 可以包括black(),Date,string,etc...
-DATATABLE (ColumnName1, DataType1, ColumnName2, DataType2..., {{Value1, Value2...}, {ValueN, ValueN+1...}...}) ```
+DATATABLE (ColumnName1, DataType1, ColumnName2, DataType2..., {{Value1, Value2...}, {ValueN, ValueN+1...}...}) 
+```
 
 - 实操案例。 
 ``` ruby
