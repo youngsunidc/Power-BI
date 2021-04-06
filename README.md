@@ -161,6 +161,12 @@ value_units = SWITCH(TRUE(),
 ![image](https://user-images.githubusercontent.com/65394762/113509388-dd3fc680-9587-11eb-8e78-47b9bd4499d6.png)
 
 
+## summarize函数
+- 公式： ```SUMMARIZE (<table>, <groupBy_columnName>[, <groupBy_columnName>]…[, <name>, <expression>]…)```
+- 通过groupby的形式摘取某表中的某列，返回一个表函数， 也可以重新定义某列（引入某种表达公式）
+
+```table_summ = SUMMARIZE(ORG,ORG[Brand],ORG[Gaming],ORG[Processor Vendor],"汇总Units数值",sum(ORG[Units])) ```
+![image](https://user-images.githubusercontent.com/65394762/113653965-6579b500-96c9-11eb-81c4-a38ac0b48aba.png)
 
 
 
