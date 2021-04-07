@@ -5,6 +5,30 @@
 - 一对一： 表示两列都仅仅含有唯一的数值。 
 - 多对多： 表示两列都包含重复值。 
 
+# 条件函数 
+## hasonevalue()
+返回TRUE值，当所选列有唯一不重复的数值
+
+ 
+```
+# 例如：下面hasonevalue中的total为汇总数值，并不是唯一的数值，因此返回为空白值。
+hasonevalue = IF(HASONEFILTER(ORG[Month]),[mea_unit],BLANK())
+
+```
+![image](https://user-images.githubusercontent.com/65394762/113832511-43605f80-97bb-11eb-80ad-c45c345e480f.png)
+```
+# brand数值中大于3,000,000的项目被筛选出来。 
+units_3w = 
+var brand_units =CALCULATE([mea_unit],all(ORG[Brand]))
+return 
+IF(HASONEVALUE(ORG[Month]),CALCULATE([mea_unit],FILTER(org, brand_units>3000000)),BLANK())
+```
+
+
+
+
+
+
 # ALL类函数
 ## ALL函数
 - **返回值**当作为表函数使用时，ALL 返回完整的表或具有一列或多列的表； 当作为 CALULCATE 调节器使用时，ALL 移除参数中已应用的任何直接筛选器。
