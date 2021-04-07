@@ -231,11 +231,28 @@ CALENDAR (DATE(2017,1,1), DATE(2020,12,31)),
 
 ## 计算上个月的方法 
 ```ruby 
+# 这里的时间为MONTH，表示以MONTH为时间做平移。 
 PREV_MONTH = CALCULATE(SUM(ORG[Units]), DATEADD('日期表'[Date].[Date], -1, MONTH))
+# 同样Date也可以调节为了yoy%的形式，这里的时间函数为YEAR.
+PREV_Year = CALCULATE(SUM(ORG[Units]), DATEADD('日期表'[Date].[Date], -1, YEAR))
 ```
 使用pre_month的方法，可以计算度量值“月”上一个月的数值。 
 ![image](https://user-images.githubusercontent.com/65394762/113669360-3aea2500-96e6-11eb-867d-91a737a518ab.png)
 
+## 计算环比变化的方法
+核心的要求是通过_pre_month计算出平移时间的units数值， 然后通过divide进行计算。 
+
+``` ruby 
+Units MoM% = 
+IF(
+	ISFILTERED('日期表'[Date]),
+	ERROR("时间智能快速度量值只能按 Power BI 提供的日期层次结构或主日期列进行分组或筛选。"),
+	VAR __PREV_MONTH = CALCULATE(SUM('ORG'[Units]), DATEADD('日期表'[Date].[Date], -1,MONTH))
+    vAR MOM= DIVIDE(SUM('ORG'[Units]) - __PREV_MONTH, __PREV_MONTH)
+	RETURN
+        SWITCH(TRUE(),MOM=-1,0,MOM<>-1, MOM
+		))
+```
 
 
 
