@@ -23,8 +23,12 @@ var brand_units =CALCULATE([mea_unit],all(ORG[Brand]))
 return 
 IF(HASONEVALUE(ORG[Month]),CALCULATE([mea_unit],FILTER(org, brand_units>3000000)),BLANK())
 ```
-
-
+## sumx()函数
+确保calculate后，可以累计相加。 
+```ruby
+units_3w_total = SUMX(VALUES(ORG[Month]), [units_3w])
+```
+![image](https://user-images.githubusercontent.com/65394762/113843498-3432df00-97c6-11eb-983d-de9721ef4a5b.png)
 
 
 
