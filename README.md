@@ -24,7 +24,7 @@ return
 IF(HASONEVALUE(ORG[Month]),CALCULATE([mea_unit],FILTER(org, brand_units>3000000)),BLANK())
 ```
 ## sumx()函数
-确保calculate后，可以累计相加。 
+确保calculate后，可以累计相加。 这样保证汇总的数值与单行的总值相等。 
 ```ruby
 units_3w_total = SUMX(VALUES(ORG[Month]), [units_3w])
 ```
@@ -292,9 +292,6 @@ IF(
         SWITCH(TRUE(),MOM=-1,0,MOM<>-1, MOM
 		))
 ```
-
-
-
 
 
 
