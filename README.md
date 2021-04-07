@@ -13,10 +13,10 @@
 ``` ruby 
 # 例如：下面hasonevalue中的total为汇总数值，并不是唯一的数值，因此返回为空白值。
 hasonevalue = IF(HASONEFILTER(ORG[Month]),[mea_unit],BLANK())
+```
+![image](https://user-images.githubusercontent.com/65394762/113832511-43605f80-97bb-11eb-80ad-c45c345e480f.png)
 
 ``` ruby
-![image](https://user-images.githubusercontent.com/65394762/113832511-43605f80-97bb-11eb-80ad-c45c345e480f.png)
-```
 # brand数值中大于3,000,000的项目被筛选出来。 
 units_3w = 
 var brand_units =CALCULATE([mea_unit],all(ORG[Brand]))
