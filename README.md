@@ -229,7 +229,7 @@ CALENDAR (DATE(2017,1,1), DATE(2020,12,31)),
 )
 ```
 
-## 计算上个月的方法 
+## 计算上个年/月/日的方法: DATEADD()函数
 ```ruby 
 # 这里的时间为MONTH，表示以MONTH为时间做平移。 
 PREV_MONTH = CALCULATE(SUM(ORG[Units]), DATEADD('日期表'[Date].[Date], -1, MONTH))
@@ -238,6 +238,17 @@ PREV_Year = CALCULATE(SUM(ORG[Units]), DATEADD('日期表'[Date].[Date], -1, YEA
 ```
 使用pre_month的方法，可以计算度量值“月”上一个月的数值。 
 ![image](https://user-images.githubusercontent.com/65394762/113669360-3aea2500-96e6-11eb-867d-91a737a518ab.png)
+
+## 计算下个年/月/日的方法： NEXTMONTH()函数
+``` ruby
+Next_month = CALCULATE(SUM(ORG[Units]),NEXTMONTH('日期表'[Date].[Date]))
+```
+![image](https://user-images.githubusercontent.com/65394762/113807898-7ee93280-9797-11eb-9296-882e6f4e4a46.png)
+
+## TOTALYTD/QTD/MTD:年/季/月初至今
+- 公式： TOTALMTD(<expression>,<dates>[,<filter>])  
+
+
 
 ## 计算环比变化的方法
 核心的要求是通过_pre_month计算出平移时间的units数值， 然后通过divide进行计算。 
