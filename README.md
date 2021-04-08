@@ -5,6 +5,36 @@
 - 一对一： 表示两列都仅仅含有唯一的数值。 
 - 多对多： 表示两列都包含重复值。 
 
+
+# 筛选函数
+## Filter()，表函数
+
+- Filter与Related函数嵌套的使用。
+	sale_in表格跟model managment是"many_to_one"的关系，即多个model_id对应唯一的model_mangament； 然后通过对model_mang的筛选把honor(honor在sale_in[brand]表中没有)过滤出来。 
+```ruby
+
+Honor = FILTER(salein,RELATED('Model Management Export'[Brand])="Honor")
+```
+![image](https://user-images.githubusercontent.com/65394762/113961805-3003d180-9859-11eb-91de-fe6e2e774d59.png)
+
+
+
+## EARLIER函数
+之前的Power BI都是对整列的字段进行操作的，没有细分对整行，或者某一行进行分析。 因此在Power BI中可以借助EARLIER函数进行整行分析。 
+- EARLIER(<columns>,<number>)
+-本行的品牌总量
+``` ruby 
+row_total_brand = CALCULATE(sum(ORG[Units]),FILTER(ORG,'ORG'[Brand]=EARLIER(ORG[Brand])))
+```
+![image](https://user-images.githubusercontent.com/65394762/113964299-cfc35e80-985d-11eb-9cb3-3e1926cb37a1.png)
+
+-累计求和公式
+``` ruby
+累计系列销量 = SUMX(FILTER(FILTER(org,ORG[Model Name]=EARLIER(ORG[Model Name])),ORG[Month]<=EARLIER(ORG[Month])),ORG[Units])
+```
+
+
+
 # 条件函数 
 ## hasonevalue()
 返回TRUE值，当所选列有唯一不重复的数值
@@ -33,12 +63,13 @@ units_3w_total = SUMX(VALUES(ORG[Month]), [units_3w])
 
 
 
+
+
 # ALL类函数
 ## ALL函数
 - **返回值**当作为表函数使用时，ALL 返回完整的表或具有一列或多列的表； 当作为 CALULCATE 调节器使用时，ALL 移除参数中已应用的任何直接筛选器。
 - 用作Calculate调节器时， 移除所有 <table> or <columns>的筛选器。
 - 用作表函数的时， ALL(<column_Name>)返回一列或者多列所有不重复的值； ALL(<TableName>)返回表中所有的行。 
-
 
 ```
 ALL ( [<TableNameOrColumnName>] , [ <ColumnName>, [ <ColumnName>, [ … ] ] ] )
@@ -96,7 +127,6 @@ ALLSELECTED ( [<表名或列名>], [ <列名>, <列名>, … ] )
 - 筛选上下文上: **如果是ALL函数的话，是把所有列都取消筛选， 但是Allexpected相当于忽略某一特定列的筛选。**
               **g_all是取消所有的筛选条件， g_all_acc取消除了brand列的所有筛选条件，因此当上下文为brand的时候，仍然有上下文筛选** 
 ![image](https://user-images.githubusercontent.com/65394762/113495117-a931ba80-9521-11eb-9a6a-6cb7597dc59e.png)
-
 
 
 
@@ -207,6 +237,9 @@ value_units = SWITCH(TRUE(),
 
 ```table_summ = SUMMARIZE(ORG,ORG[Brand],ORG[Gaming],ORG[Processor Vendor],"汇总Units数值",sum(ORG[Units])) ```
 ![image](https://user-images.githubusercontent.com/65394762/113653965-6579b500-96c9-11eb-81c4-a38ac0b48aba.png)
+
+
+
 
 
 
