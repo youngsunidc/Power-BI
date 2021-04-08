@@ -29,7 +29,11 @@ row_total_brand = CALCULATE(sum(ORG[Units]),FILTER(ORG,'ORG'[Brand]=EARLIER(ORG[
 ![image](https://user-images.githubusercontent.com/65394762/113964299-cfc35e80-985d-11eb-9cb3-3e1926cb37a1.png)
 
 -累计求和公式
+
 ``` ruby
+
+# 第一层级筛选通过eailer把model_name筛选出来， FILTER(org,ORG[Model Name]=EARLIER(ORG[Model Name])
+# 第二层级筛选通过生成表格，把所有某季度时间前的进行加和。  SUMX(FILTER([同系列表],ORG[Quarter]<=EARLIER(ORG[Quarter])),ORG[Units])
 累计系列销量 = SUMX(FILTER(FILTER(org,ORG[Model Name]=EARLIER(ORG[Model Name])),ORG[Month]<=EARLIER(ORG[Month])),ORG[Units])
 ```
 
