@@ -11,7 +11,7 @@
 
 - Filter与Related函数嵌套的使用。
 	sale_in表格跟model managment是"many_to_one"的关系，即多个model_id对应唯一的model_mangament； 然后通过对model_mang的筛选把honor(honor在sale_in[brand]表中没有)过滤出来。 
-```ruby
+```python
 
 Honor = FILTER(salein,RELATED('Model Management Export'[Brand])="Honor")
 ```
@@ -314,6 +314,20 @@ Next_month = CALCULATE(SUM(ORG[Units]),NEXTMONTH('日期表'[Date].[Date]))
 
 ## TOTALYTD/QTD/MTD:年/季/月初至今
 - 公式： TOTALMTD(<expression>,<dates>[,<filter>])  
+
+
+
+## DATESBETWEEN
+- ``` DATESBETWEEN ( <Dates>, <StartDate>, <EndDate> )```
+-  返回两个时间段中间的所有数值的时间差。 返回类型： 表函数
+
+
+- 区间算数值
+```period_units = CALCULATE(sum(ORG[Units]),DATESBETWEEN('日期表'[Date], DATE(2020,5,1),DATE(2020,8,1)))```
+
+-生成一个区间时间表
+```生成一个表，示例： Table_data_per = DATESBETWEEN('日期表'[Date], DATE(2020,5,1),DATE(2020,8,1))```
+![image](https://user-images.githubusercontent.com/65394762/115177263-6d8e1780-a101-11eb-9443-031f9deb08da.png)
 
 
 
