@@ -332,7 +332,7 @@ Next_month = CALCULATE(SUM(ORG[Units]),NEXTMONTH('日期表'[Date].[Date]))
 
 ## DATAESINPERIOD
 - ```DATESINPERIOD ( <Dates>, <StartDate>, <NumberOfIntervals>, <Interval> )```
-NumberOfIntervals表示间隔数量，负数代表过去，正数代表未来； Interval间隔类型:年，季度，月和日
+- NumberOfIntervals表示间隔数量，负数代表过去，正数代表未来； Interval间隔类型:年，季度，月和日
 -示例
 ```period_units = CALCULATE(sum(ORG[Units]), DATESINPERIOD('日期表'[Date],DATE(2020,5,1),4,MONTH))```
 ![image](https://user-images.githubusercontent.com/65394762/115178341-a929e100-a103-11eb-948f-c8ffe3937a90.png)
