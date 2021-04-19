@@ -321,14 +321,28 @@ Next_month = CALCULATE(SUM(ORG[Units]),NEXTMONTH('日期表'[Date].[Date]))
 - ``` DATESBETWEEN ( <Dates>, <StartDate>, <EndDate> )```
 -  返回两个时间段中间的所有数值的时间差。 返回类型： 表函数
 
-
 - 区间算数值
 ```period_units = CALCULATE(sum(ORG[Units]),DATESBETWEEN('日期表'[Date], DATE(2020,5,1),DATE(2020,8,1)))```
+![image](https://user-images.githubusercontent.com/65394762/115177565-13da1d00-a102-11eb-9232-c743336c318b.png)
 
 -生成一个区间时间表
-```生成一个表，示例： Table_data_per = DATESBETWEEN('日期表'[Date], DATE(2020,5,1),DATE(2020,8,1))```
+```Table_data_per = DATESBETWEEN('日期表'[Date], DATE(2020,5,1),DATE(2020,8,1))```
 ![image](https://user-images.githubusercontent.com/65394762/115177263-6d8e1780-a101-11eb-9443-031f9deb08da.png)
 
+
+## DATAESINPERIOD
+- ```DATESINPERIOD ( <Dates>, <StartDate>, <NumberOfIntervals>, <Interval> )```
+NumberOfIntervals表示间隔数量，负数代表过去，正数代表未来； Interval间隔类型:年，季度，月和日
+-示例
+```period_units = CALCULATE(sum(ORG[Units]), DATESINPERIOD('日期表'[Date],DATE(2020,5,1),4,MONTH))```
+![image](https://user-images.githubusercontent.com/65394762/115178341-a929e100-a103-11eb-948f-c8ffe3937a90.png)
+``` mysql
+DATESINPERIOD('date'[Date],DATE(2018,2,1),1,DAY)     // 返回 2018 年 2 月 1 日
+DATESINPERIOD('date'[Date],DATE(2018,2,1),1,MONTH)   // 返回 2018 年 2 月 1 日至 2018 年 2 月 28 日，不含 3 月 1 日
+DATESINPERIOD('date'[Date],DATE(2018,2,1),-1,MONTH)  // 返回 2018 年 1 月 2 日至 2018 年 2 月 1 日，不含 1 月 1 日
+DATESINPERIOD('date'[Date],DATE(2018,2,1),1,QUARTER) // 返回 2018 年 2 月 1 日至 2018 年 4 月 30 日
+DATESINPERIOD('date'[Date],DATE(2018,2,1),1,YEAR)    // 返回 2018 年 2 月 1 日至 2019 年 1 月 31 日，不含 19 年 2 月 1 日
+```
 
 
 ## 计算环比变化的方法
