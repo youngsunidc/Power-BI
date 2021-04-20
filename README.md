@@ -61,6 +61,16 @@ var brand_units =CALCULATE([mea_unit],all(ORG[Brand]))
 return 
 IF(HASONEVALUE(ORG[Month]),CALCULATE([mea_unit],FILTER(org, brand_units>3000000)),BLANK())
 ```
+
+# 迭代函数
+在DAX中，迭代函数是指对整个表执行DAX()表达式，再根据不同的函数执行不同的后续操作。 
+- 先每行进行计算，再根据迭代函数的结果进行函数运行
+常用的迭代函数有两类
+-以X结尾的聚合函数，比如sumx(), Averagex()等。
+-Filter, addcolumns, selectcolumns,rankx等其他函数， 
+
+
+
 ## sumx()函数
 -公式： ```SUMX(<table>, <expression>)```
 可以加总运算。
@@ -69,6 +79,15 @@ IF(HASONEVALUE(ORG[Month]),CALCULATE([mea_unit],FILTER(org, brand_units>3000000)
 units_3w_total = SUMX(VALUES(ORG[Month]), [units_3w])
 ```
 ![image](https://user-images.githubusercontent.com/65394762/113843498-3432df00-97c6-11eb-983d-de9721ef4a5b.png)
+
+## max函数()
+```
+MAX(<expression1>, <expression2>)
+MAX(<column>)  
+```
+- 返回最大的数值，表达式或是字符串
+- Max()是聚合函数，忽略行上下文（与sum函数相似),需要通过calculate把行上下文转成筛选上下文。 
+
 
 
 
