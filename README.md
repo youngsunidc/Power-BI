@@ -73,21 +73,37 @@ IF(HASONEVALUE(ORG[Month]),CALCULATE([mea_unit],FILTER(org, brand_units>3000000)
 
 ## sumx()函数
 -公式： ```SUMX(<table>, <expression>)```
-可以加总运算。
+可以加总运算。 先运算，再运行公式
 确保calculate后，可以累计相加。 这样保证汇总的数值与单行的总值相等。 
-```ruby
-units_3w_total = SUMX(VALUES(ORG[Month]), [units_3w])
+
+
 ```
-![image](https://user-images.githubusercontent.com/65394762/113843498-3432df00-97c6-11eb-983d-de9721ef4a5b.png)
+[AllSales] :=
+SUMX (
+Sales,
+Sales[ProductQuantity] * Sales[ProductPrice]
+)
+```
+上述公式先对每一行进运算上述expression,然后再进行函数运算（加和）
+
+
+# 聚合函数
+DAX 提供了一组函数，它们聚合表中某个列的值并返回单个值
 
 ## max函数()
-```
+ ```
 MAX(<expression1>, <expression2>)
 MAX(<column>)  
 ```
 - 返回最大的数值，表达式或是字符串
 - Max()是聚合函数，忽略行上下文（与sum函数相似),需要通过calculate把行上下文转成筛选上下文。 
 
+- 案例
+MAX(）在这里的作用仅仅是返回一个单个字符串的数值而已，因为通过filter最后筛选出一个字符串。 因此，这里也可以是Min函数
+```
+top1_units_name = CALCULATE(MAX(sale_out[Brand]),FILTER(ALL(sale_out[Brand]),[rank]=1))
+```
+![image](https://user-images.githubusercontent.com/65394762/115355844-a5728900-a1ed-11eb-98ad-62a7e4ed10e8.png)
 
 
 
