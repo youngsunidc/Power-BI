@@ -6,6 +6,10 @@
 - 多对多： 表示两列都包含重复值。 
 
 
+
+
+
+
 # 筛选函数
 ## Filter()，表函数
 
@@ -68,6 +72,28 @@ units_3w_total = SUMX(VALUES(ORG[Month]), [units_3w])
 
 
 
+# 排名函数
+## rank()排名
+```RANKX(<table>, <expression>[, <value>[, <order>[, <ties>]]])```  
+
+
+
+- sum()函数
+
+![image](https://user-images.githubusercontent.com/65394762/115329287-b0fd8a00-a1c4-11eb-8e7e-21d36fb56a58.png)
+
+- 度量值
+
+![image](https://user-images.githubusercontent.com/65394762/115329380-cecaef00-a1c4-11eb-9e84-2c7a30b2ca02.png)
+
+
+```
+排名1 = rankx('产品',[销售额])
+排名2 = rankx('产品',SUM('销售记录'[销售]))
+排名3 = RANKX('产品',CALCULATE(SUM('销售记录'[销售])))
+```
+因为聚合函数，例如SUM，MIN和MAX只能感知筛选上下文，而忽略行上下文，所以得到每行相同的值，而[销售额]中存在隐性的CALCULATE函数引发了上下文转换，
+将现有的行上下文转化成了等价的筛选上下文。所以，如果我们还想在排名公式中使用SUM函数的话，需要在其外面加一个CALCULATE函数（排名3）。
 
 
 
