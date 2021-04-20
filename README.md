@@ -75,15 +75,15 @@ units_3w_total = SUMX(VALUES(ORG[Month]), [units_3w])
 # 排名函数
 ## rank()排名
 ```RANKX(<table>, <expression>[, <value>[, <order>[, <ties>]]])```  
-
-
+RANKX是一个迭代函数，它对’产品'表中的每一行都计算了该函数第二个参数处的表达式，然后再根据计算结果进行排名。
 
 - sum()函数
+把数据进行聚合。
 
 ![image](https://user-images.githubusercontent.com/65394762/115329287-b0fd8a00-a1c4-11eb-8e7e-21d36fb56a58.png)
 
 - 度量值
-
+把数据进行度量数值的计算。
 ![image](https://user-images.githubusercontent.com/65394762/115329380-cecaef00-a1c4-11eb-9e84-2c7a30b2ca02.png)
 
 
@@ -93,7 +93,7 @@ units_3w_total = SUMX(VALUES(ORG[Month]), [units_3w])
 排名3 = RANKX('产品',CALCULATE(SUM('销售记录'[销售])))
 ```
 因为聚合函数，例如SUM，MIN和MAX只能感知筛选上下文，而忽略行上下文，所以得到每行相同的值，而[销售额]中存在隐性的CALCULATE函数引发了上下文转换，
-将现有的行上下文转化成了等价的筛选上下文。所以，如果我们还想在排名公式中使用SUM函数的话，需要在其外面加一个CALCULATE函数（排名3）。
+将现有的行上下文转化成了等价的筛选上下文。所以，如果我们还想在排名公式中使用SUM函数的话，需要在其外面加一个CALCULATE函数（排名3），这样便可以达到同样的效果。
 
 
 
