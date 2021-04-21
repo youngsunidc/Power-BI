@@ -375,7 +375,16 @@ Next_month = CALCULATE(SUM(ORG[Units]),NEXTMONTH('日期表'[Date].[Date]))
 ![image](https://user-images.githubusercontent.com/65394762/113807898-7ee93280-9797-11eb-9296-882e6f4e4a46.png)
 
 ## TOTALYTD/QTD/MTD:年/季/月初至今
-- 公式： TOTALMTD(<expression>,<dates>[,<filter>])  
+- 公式： TOTALMTD(<expression>,<dates>[,<filter>],<YearEndDate>])  
+
+
+```Totalytd = TOTALYTD(sum(sale_out[Units]),'日期表'[Date],"7-31")```
+![image](https://user-images.githubusercontent.com/65394762/115494026-6436b380-a297-11eb-8696-6699d5e47188.png)
+
+
+
+
+
 
 
 
