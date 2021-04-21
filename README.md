@@ -211,6 +211,11 @@ ALLSELECTED ( [<表名或列名>], [ <列名>, <列名>, … ] )
 - 可以与IF函数进行连立。
 ![image](https://user-images.githubusercontent.com/65394762/113383259-1a545f00-93b6-11eb-96c6-bb79ae7a2b98.png)
 
+- 可以与sumx()建立连接
+``` sumx(Table, Related())```
+![image](https://user-images.githubusercontent.com/65394762/115511350-542ccd00-a2b3-11eb-8c86-2c97c29c0d03.png)
+
+
 ## relatedtable函数(one to many)
 - 一对多的情况。 relatedtable将返回一个表函数。 RELATEDTABLE ( <表名> )
 - 可以对返回的表函数，进行嵌套操作，再返回成一个值函数。 
@@ -430,8 +435,6 @@ IF(
         SWITCH(TRUE(),MOM=-1,0,MOM<>-1, MOM
 		))
 ```
-
-
 
 
 
