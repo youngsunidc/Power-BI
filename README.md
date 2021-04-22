@@ -6,7 +6,16 @@
 - 多对多： 表示两列都包含重复值。 
 
 
+# 计数函数
+## countrow
+Counts the number of rows in a table.
+```COUNTROWS ( <Table> )```
 
+	
+## DISTINCTCOUNT
+特指某列中特定不重复的数值。 
+``` distinct_row = DISTINCTCOUNT(sale_out[Screen Size])```
+![image](https://user-images.githubusercontent.com/65394762/115685324-b4427280-a38a-11eb-9195-c7ce34939497.png)
 
 
 
@@ -162,6 +171,7 @@ ALL_Brand = RANKX(ALL(ORG[Brand]),[mea_unit])
 All_sheets = RANKX(ALL(ORG),[mea_unit])
 ```
 ![image](https://user-images.githubusercontent.com/65394762/113477489-992fc180-94b4-11eb-8082-8516a5ee52cb.png)
+
 
 
 
