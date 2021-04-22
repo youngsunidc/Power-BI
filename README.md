@@ -7,8 +7,9 @@
 
 
 # 计数函数
-## countrow
+## COUNTROW
 Counts the number of rows in a table.
+对一个表里面有多少行进行计算， 受上下文的影响。 
 ```COUNTROWS ( <Table> )```
 
 	
