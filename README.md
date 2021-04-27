@@ -322,8 +322,19 @@ value_units = SWITCH(TRUE(),
 ```table_summ = SUMMARIZE(ORG,ORG[Brand],ORG[Gaming],ORG[Processor Vendor],"汇总Units数值",sum(ORG[Units])) ```
 ![image](https://user-images.githubusercontent.com/65394762/113653965-6579b500-96c9-11eb-81c4-a38ac0b48aba.png)
 
+- 应用场景： 可类似于left join函数
+```Table_summ = SUMMARIZE(ORG,ORG[Model Name],ferda_models[GPU Model],"sum_unit",sum(ORG[Units]) )```
 
-
+![image](https://user-images.githubusercontent.com/65394762/116225730-c3f3f980-a784-11eb-8d5f-65e29ce6d74b.png)
+这里我们可以想象成mysql中一个表1中model name与表2中gpu model的关联， units 是关联
+同等的sql语句是
+```
+select ORG.Model Name, ferda_models.GPU Model , sum(ORG.units) as "sum_units"
+from ORG
+left join ferda_models
+on ORG.key = ferda_models.key
+group by Model Name, GPU Model
+```
 
 
 
