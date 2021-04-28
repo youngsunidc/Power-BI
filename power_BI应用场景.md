@@ -23,3 +23,13 @@ left join ferda_models
 on ORG.key = ferda_models.key
 group by Model Name, GPU Model
 ```
+
+## 通过合并查询功能进行实现
+PQ中的合并查询功能可以满足这个要求
+
+- 第一步
+![image](https://user-images.githubusercontent.com/65394762/116352914-7b8e1780-a828-11eb-9c5f-2be80f9218de.png)
+
+-第二步
+![image](https://user-images.githubusercontent.com/65394762/116352790-4e416980-a828-11eb-9acd-a7c4aa40413c.png)
+
