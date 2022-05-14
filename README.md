@@ -460,3 +460,16 @@ IF(
 
 
 
+## 度量值筛选器
+
+![image](https://user-images.githubusercontent.com/65394762/168407310-5045001c-42b0-409d-8409-d10262a95b14.png)
+ 	
+	
+
+
+	
+	
+	
+	
+	
+	
