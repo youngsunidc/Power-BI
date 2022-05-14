@@ -460,14 +460,13 @@ IF(
 
 
 
-## 度量值筛选器
-
+## 度量值筛选器	
 ![image](https://user-images.githubusercontent.com/65394762/168407310-5045001c-42b0-409d-8409-d10262a95b14.png)
  	
 	
-
-
-	
+可以通过度量值筛选器的功能，选择KRI权重值。通过GENERATESERIES(0, 1, 0.1)函数来自动生产新建表，然后通过SELECTEDVALUE('RI07 Weight'[RI07 Weight], 1)进行相同的打KRI分。
+![image](https://user-images.githubusercontent.com/65394762/168407772-be58c568-7dfb-4651-b1e6-190bfefd1697.png)	
+![image](https://user-images.githubusercontent.com/65394762/168407803-82a69a14-d676-48fa-a83f-a56d57ef4bfd.png)
 	
 	
 	
